@@ -1,0 +1,48 @@
+/* h2{
+    text-align: center;
+}
+.container {
+    width: 350px;
+    padding: 16px;
+    background-color: white;
+    margin: 0 auto;
+    margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+input[type=text], input[type=password] {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: inherit;
+    background: #f1f1f1;
+}
+button {
+    background-color: rgb(77, 75, 75);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+} */
+
+
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}

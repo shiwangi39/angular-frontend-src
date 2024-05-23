@@ -1,0 +1,117 @@
+
+<div *ngIf="laptops;else err" >
+    <div class="header">
+         <h2 class="table-title">Manage laptops</h2>
+            <div class="content-actions">
+              <button class="btn dark" (click)="openorderdetails()"><b>Order details</b></button>
+               <button class="btn" (click)="opencategory()"><b>Category</b></button>
+                <button class="btn" (click)="openForm()"><b>Add laptops</b></button>
+            </div>
+            <div class="logout-action">
+                 <button class="btn btn-danger" (click)="onlogout()">LogOut</button>
+             </div>
+     </div>
+   
+    <table class="table">
+        <thead class="table-dark">
+            <tr>
+                <th>productName</th>
+                <th>colour</th>
+                <th>price(rs)</th>
+                <th>Ram</th>
+                <th>Storage</th>
+                <th>Category</th>
+                <th>imageurl</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr *ngFor="let laptop of laptops">
+                <td>{{laptop['productName']}}</td>
+                <td>{{laptop.productDescription}}</td>
+                <td>{{laptop.price}}</td>
+                <td>{{laptop.ram}}gb</td>
+                <td>{{laptop.storage}}GB</td>
+                <td>{{laptop.categoryId}}</td>
+                <td>{{laptop.imageurl}}</td>
+                <td>
+                    <button class="btn btn-primary" (click)="openForm(laptop)">Edit</button>
+                </td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteLaptop(laptop['id'])">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<ng-template #err class="text-danger">
+    <p class="text-danger">error to fetch the data</p>
+</ng-template>
+ 
+<div class="form-anish" *ngIf="showcat">
+    <div class="anishform">
+        <h2 class="text-info text-center"><b>Category</b></h2>
+        <table class="table" border="2">
+            <thead>
+            <tr>
+                <th><h3>Category</h3></th>
+                <th><h3>Brand</h3></th>
+            </tr>
+        </thead>
+       
+        <tbody>
+       
+            <tr *ngFor="let cat of Category">
+                <td>{{cat.id}}</td>
+                <td>{{cat.categoryName}}</td>
+               
+            </tr>
+        </tbody>
+           
+        </table>
+        <button class="btn btn-danger" (click)="closecat()">close</button>
+    </div>
+</div>
+ 
+ 
+ 
+ 
+<div class="form-wrapper" *ngIf="showForm">
+    <div class="laptopform">
+        <h2 class="text-info text-center">{{formHeader}}</h2>
+        <div class="group">
+            <label for="moblie">productName</label>
+            <input type="text" class="form-control" [(ngModel)]="productName" name="productName" required>
+        </div>
+        <div class="group">
+            <label for="moblie">colour</label>
+            <input type="text" class="form-control" [(ngModel)]="productDescription" name="productDescription" required>
+        </div>
+        <div class="group">
+            <label for="moblie">price</label>
+            <input type="number" class="form-control" [(ngModel)]="price" name="price" required>
+        </div>
+        <div class="group">
+            <label for="moblie">Ram</label>
+            <input type="number" class="form-control" [(ngModel)]="Ram" name="ram" required minlength="1">
+        </div>
+        <div class="group">
+            <label for="moblie">Storage</label>
+            <input type="number" class="form-control" [(ngModel)]="Storage" name="storage" required minlength="1">
+        </div>
+        <div class="group">
+            <label for="moblie">Category</label>
+            <input type="number" class="form-control" [(ngModel)]="categoryId" name="categoryId" required min="1">
+        </div>
+        <div class="group">
+            <label for="moblie">imageurl</label>
+            <input type="text" class="form-control" [(ngModel)]="imageurl" name="imageurl" required min="1">
+        </div>
+        <div class="action">
+            <button class="btn btn-primary" (click)="saveLaptop()">Save changes</button>
+            <button class="btn btn-danger" (click)="closeForm()">cancel</button>
+        </div>
+    </div>
+</div>
+ 

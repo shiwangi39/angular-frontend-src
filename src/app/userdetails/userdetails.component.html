@@ -1,0 +1,29 @@
+
+<div class="headers">
+    <h2 class="table-title">User details</h2>
+    
+    <button class="btn btn-success" (click)="Back()">Back</button>    
+</div>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Customer userId</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">PhoneNumber</th>
+            <th scope="col">Address</th>
+        
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of data">
+            <th>{{user.id}}</th>
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.city}}</td>
+           
+        </tr>
+       
+    </tbody>
+</table>

@@ -1,0 +1,51 @@
+
+<div *ngIf="data" >
+    <div class="headers">
+        <h2 class="table-title">Laptops</h2>
+        <!-- <button class="btn btn-success" (click)="carts()">Add to cart</button> -->
+        <button class="btn btn-primary" (click)="onclick()" routerLinkActive="active">Order Details</button>
+        <button class="btn btn-primary" (click)="goto()" routerLinkActive="active">Cart-Items</button>
+        <button class="btn btn-danger" (click)="onlogout()">Logout</button>
+        <p>Hello</p>    
+
+    </div><br>
+    <div class="row">
+        <div class *ngFor="let product of data">
+            <div class="col-10">
+                <div class="card md-2">
+                    <div class="card-header bg-dark-subtle">
+                        <img src={{product.imageurl}} alt="Product Image" class="img-fluid" style="max-height: 200px;">
+                        <h5>{{product.productName | titlecase}}</h5>
+                        <h6>({{product.ram}}GB RAM,</h6>
+                        <h6>{{product.storage}}GB Storage)</h6>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{product.price | currency : "INR"}}</h5>
+                        <h6 class="card-title">colour: {{product.productDescription}}</h6>
+                    <div>
+                        <label>Quantity:</label>
+                            <!-- <input id="form1" min="0" [(ngModel)]="quantity" name="quantity" value="999" type="number"
+                        class="form-control form-control-sm" /> -->
+
+                        <input id="form1" min="1" max="10" [(ngModel)]="product.quantity" (ngModelChange)="onQuantityChange(product, $event)" name="quantity" type="number" class="form-control form-control-sm" />
+                    </div>
+                        
+                        
+                        <button class="btn btn-dark" (click)="carts(product)" [disabled]="fan===product.productName">Add to cart</button>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div> 
+    </div>
+</div> 
+
+
+
+
+
+
+
+
+

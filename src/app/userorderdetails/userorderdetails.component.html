@@ -1,0 +1,27 @@
+
+<div class="headers">
+    <h2 class="table-title">Customer order details</h2>
+    <button class="btn btn-success" (click)="Back()">Back</button>    
+</div>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">MobileNames</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Ram</th>
+            <th scope="col">Storage</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let order of orders">
+            <td>{{order.productName}}</td>
+            <td>{{order.quantity}}</td>
+            <td>{{order.ram}}</td>
+            <td>{{order.storage}}</td>
+            <td>{{order.price}}</td>
+            
+        </tr>
+       
+    </tbody>
+</table>
